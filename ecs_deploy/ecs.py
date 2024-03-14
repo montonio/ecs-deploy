@@ -661,12 +661,6 @@ class EcsTaskDefinition(object):
                     new_environment=environment[container[u'name']],
                     exclusive=exclusive,
                 )
-            elif exclusive is True:
-                self.apply_container_environment(
-                    container=container,
-                    new_environment={},
-                    exclusive=exclusive,
-                )
 
     def apply_container_environment(self, container, new_environment, exclusive=False):
         environment = container.get('environment', {})
@@ -802,12 +796,6 @@ class EcsTaskDefinition(object):
                 self.apply_container_secrets(
                     container=container,
                     new_secrets=secrets[container[u'name']],
-                    exclusive=exclusive,
-                )
-            elif exclusive is True:
-                self.apply_container_secrets(
-                    container=container,
-                    new_secrets={},
                     exclusive=exclusive,
                 )
 
